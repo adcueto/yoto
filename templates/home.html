@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - YOTO{% endblock %}
+
+{% block content %}
+    <h2>Bienvenido a YOTO</h2>
+    <p>Plataforma integradora de la red que proporciona monitoreo, auditoría y desempeño.</p>
+    <img src="{{ url_for('static', filename='images/banner.png') }}" alt="Banner de YOTO">
+{% endblock %}

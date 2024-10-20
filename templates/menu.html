@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Menú de Sistemas{% endblock %}
+{% block content %}
+<div class="menu-container">
+    <h2>Selecciona el sistema que deseas visualizar</h2>
+    <div class="menu-options">
+        <div class="option">
+            <a href="{{ url_for('dashboard') }}">
+                <img src="{{ url_for('static', filename='images/sistema_monitoreo.png') }}" alt="Sistema de Monitoreo de la Red">
+                <p>SISTEMA DE MONITOREO DE LA RED</p>
+            </a>
+        </div>
+        <div class="option">
+            <a href="#">
+                <img src="{{ url_for('static', filename='images/sistema_desempeno.png') }}" alt="Sistema de Desempeño de la Red">
+                <p>SISTEMA DE DESEMPEÑO DE LA RED</p>
+                <p>(Próximamente)</p>
+            </a>
+        </div>
+        <div class="option">
+            <a href="#">
+                <img src="{{ url_for('static', filename='images/sistema_estadistico.png') }}" alt="Sistema Estadístico de la Red">
+                <p>SISTEMA ESTADÍSTICO DE LA RED</p>
+                <p>(Próximamente)</p>
+            </a>
+        </div>
+        <div class="option">
+            <a href="#">
+                <img src="{{ url_for('static', filename='images/sistema_auditor.png') }}" alt="Sistema Auditor de la Red">
+                <p>SISTEMA AUDITOR DE LA RED</p>
+                <p>(Próximamente)</p>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

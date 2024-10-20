@@ -1,0 +1,31 @@
+
+/Yoto
+├── app.py                 # Archivo principal para iniciar la aplicación Flask y manejar las rutas principales.
+├── config.py              # Configuración de la aplicación (como la secret_key y otras configuraciones).
+├── dash_app.py            # Configuración de la aplicación Dash y su integración con Flask.
+├── models/                # Modelos de datos y lógica de negocio.
+│   ├── __init__.py        # Archivo de inicialización para la carpeta de modelos.
+│   └── data_loader.py     # Módulo para cargar y procesar datos desde archivos CSV.
+├── services/              # Lógica de negocio adicional.
+│   ├── __init__.py        # Archivo de inicialización para la carpeta de servicios.
+│   └── map_service.py     # Lógica relacionada con la generación de mapas y gráficos.
+├── templates/             # Plantillas HTML para las vistas de Flask.
+│   ├── base.html          # Plantilla base para la estructura común (menú, header, footer).
+│   ├── home.html          # Página de inicio.
+│   ├── about.html         # Página "About Us".
+│   ├── services.html      # Página de "Services".
+│   ├── contact.html       # Página de "Contact".
+│   ├── login.html         # Página de inicio de sesión.
+│   └── dashboard.html     # Página del menú de selección de sistemas con el iframe para el dashboard.
+├── static/                # Archivos estáticos como CSS, JS e imágenes.
+│   ├── styles.css         # Estilos CSS para toda la aplicación.
+│   ├── scripts.js         # Scripts JS si se necesitan.
+│   └── images/            # Imágenes para los íconos de los sistemas y otros gráficos.
+│       ├── sistema_monitoreo.png
+│       ├── sistema_desempeno.png
+│       ├── sistema_estadistico.png
+│       └── sistema_auditor.png
+├── data/                  # Carpeta para almacenar archivos de datos.
+│   └── data.csv           # Archivo CSV con los datos que se utilizan en los gráficos.
+├── requirements.txt       # Librerías de Python necesarias para la aplicación (Flask, Dash, pandas, etc.).
+└── README.md              # Documentación básica del proyecto y cómo configurarlo.

@@ -1,9 +1,195 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}YOTO{% endblock %}</title>
+    
+    <!-- Ruta del favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='multimedia/img/icono.ico') }}">
 
-{% block title %}Inicio - YOTO{% endblock %}
 
-{% block content %}
-    <h2>Bienvenido a YOTO</h2>
-    <p>Plataforma integradora de la red que proporciona monitoreo, auditoría y desempeño.</p>
-    <img src="{{ url_for('static', filename='images/banner.png') }}" alt="Banner de YOTO">
-{% endblock %}
+    <!-- Estilos CSS -->
+    <link href="{{ url_for('static', filename='css/main_style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='bootstrap/5.3.0/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link href="{{ url_for('static', filename='FontAwesome/6.4.0/css/fontawesome.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='FontAwesome/6.4.0/css/brands.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='FontAwesome/6.4.0/css/solid.css') }}" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-white fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">
+                <img src="{{ url_for('static', filename='multimedia/img/YOTO.svg') }}" alt="Logo Yoto" id="logoYoto">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto fw-bold">
+                    <li class="nav-item">
+                        <a class="nav-link active" onclick="topBody('navbarSupportedContent')">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Servicios" onclick="closeMenu('navbarSupportedContent')">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Nosotros" onclick="closeMenu('navbarSupportedContent')">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}" onclick="closeMenu('navbarSupportedContent')">Usuarios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <video id="vid_data" src="{{ url_for('static', filename='multimedia/video/data_480.mp4') }}" loading="lazy" width="100%" height="100%" loop autoplay muted></video>
+            </div>
+            <div class="carousel-item" data-bs-interval="9000">
+                <video id="vid_iot" src="{{ url_for('static', filename='multimedia/video/iot_480.mp4') }}" loading="lazy" width="100%" height="100%" loop autoplay muted></video>
+            </div>
+            <div class="carousel-item" data-bs-interval="7000">
+                <video id="vid_pymes" src="{{ url_for('static', filename='multimedia/video/pymes_480.mp4') }}" loading="lazy" width="100%" height="100%" loop autoplay muted></video>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+     <!-- Sección de Servicios -->
+    <div class="Space3" id="Servicios" data-bs-target="#navbar"></div>
+
+    <section class="Center container">
+        <div class="page">
+            <div class="row featurette">
+                <div class="container text-center">
+                    <div class="row">
+                        <a class="fw-bolder fs-3" style="color:#000000" name="ser">NUESTROS SERVICIOS</a>
+                        <br>
+                        <p class="fw-bolder fs-1" style="color:#000000">CREANDO E INNOVANDO CON TECNOLOGÍA</p>
+                        <br>
+                        <div class="gallery">
+                            <div class="container-lg">
+                                <div class="row gy-4">
+                                    <!--<div class="col">
+                                        <a href="">
+                                            <img class="gallery-item" alt="gallery_pymes" src="{{ url_for('static', filename='multimedia/img/pymes.jpg') }}">
+                                        </a>
+                                    </div>-->
+                                    <div class="col-6 mb-2">
+                                        <a href="">
+                                            <img class="gallery-item" alt="gallery_iot" src="{{ url_for('static', filename='multimedia/img/iot.jpg') }}">
+                                        </a>
+                                    </div>
+                                    <!--<div class="col">
+                                        <a href="">
+                                            <img class="gallery-item" alt="gallery_telecom" src="{{ url_for('static', filename='multimedia/img/telecom.jpg') }}">
+                                        </a>
+                                    </div>-->
+                                    <div class="col-6 mb-2">
+                                        <a href="">
+                                            <img class="gallery-item" alt="gallery_data" src="{{ url_for('static', filename='multimedia/img/data.jpg') }}">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+        <br>
+     
+        <div class="Center">
+         <img class="business" src="{{ url_for('static', filename='multimedia/img/banner.jpg') }}">
+        </div>
+    </section>
+
+    <!-- Sección de Quiénes Somos -->
+<div class="Space3" id="Nosotros" data-bs-target="#navbar"></div>
+<section class="Center container">
+    <p class="fw-bolder fs-1" style="color:#000000">¿QUIÉNES SOMOS?</p>
+    <div class="gallery">
+        <div class="container-lg">
+            <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-2">
+                <div class="col">
+                    <img class="gallery-item img-fluid" alt="gallery_vision" src="{{ url_for('static', filename='multimedia/img/vision.jpg') }}">
+                </div>
+                <div class="col">
+                    <img class="gallery-item img-fluid" alt="gallery_mision" src="{{ url_for('static', filename='multimedia/img/mision.jpg') }}">
+                </div>
+                <!--<div class="col">
+                    <img class="gallery-item img-fluid" alt="gallery_valores" src="{{ url_for('static', filename='multimedia/img/valores.jpg') }}">
+                </div>-->
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Sección de Contacto -->
+    <div class="Space3" id="Contacto" data-bs-target="#navbar"></div>
+    <section class="Center bg-black text-white container">
+        <div class="container p-4">
+            <div class="mb-4">
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i class='fa-brands fa-facebook fa-beat-fade'></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i class='fa-brands fa-twitter fa-beat-fade'></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i class='fa fa-envelope fa-beat-fade'></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i class='fa-brands fa-instagram fa-beat-fade'></i></a>
+                <a class="btn btn-outline-light btn-floating m-1" href="#" role="button"><i class='fa-brands fa-linkedin fa-beat-fade'></i></a>
+            </div>
+            <div class="mb-4">
+                <p><a class="link-opacity-10-hover" href="#">Llama al xxxx xxxx xxx </a></p>
+                <p>Prolongación Blvd. Bernardo Quintana 300 Piso 14, Centro Sur. Santiago de Querétaro, Qro. C.P. 76090</p>
+            </div>
+            <div class="container px-4 text-center">
+                <div class="row gx-5">
+                    <div class="col">
+                        <div class="map-responsive">
+                            <iframe loading="lazy" src="https://www.google.com/maps/embed?pb=!4v1686093323024!6m8!1m7!1s7PezeCo-VeMPdTyfXOSDIg!2m2!1d20.58004795645535!2d-100.3625400833502!3f223.74404035388523!4f38.62857577007014!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="container Center px-0"> 
+        <div class="text-center p-3 text-white footer">
+            © 2023 Copyright: <a class="text-white fw-bold" href="index.php">YOTO Soluciones & Servicios</a>
+        </div>
+    </footer>
+
+    <button type="button" class="btn btn-danger btn-floating btn-lg fw-bold" id="btn-back-to-top" onclick="topFunction()" title="Go to top" style="display: none;">TOP</button>
+
+
+    <!-- Script para pasar las URLs de los videos al JavaScript -->
+    <script>
+        var videoDataBaseURL = "{{ url_for('static', filename='multimedia/video/data_') }}";
+        var videoIOTBaseURL = "{{ url_for('static', filename='multimedia/video/iot_') }}";
+        var videoPymesBaseURL = "{{ url_for('static', filename='multimedia/video/pymes_') }}";
+        // var videoTelecomBaseURL = "{{ url_for('static', filename='multimedia/video/telecom_') }}"; // Eliminado
+    </script>
+    <!-- Bootstrap y JS -->
+    <script src="{{ url_for('static', filename='bootstrap/5.3.0/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

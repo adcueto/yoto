@@ -1,0 +1,136 @@
+/*
+Azul #002b7a 
+Vino #bc1024
+original #b61826
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../multimedia/img/fondomenu.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffff;
+    color: #002b7a;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.header h1 {
+    font-size: 28px;
+}
+
+.logo img {
+    max-width: 150px;
+}
+/* Perfil del usuario */
+.user-profile {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    background-color: #fff;
+    color: #bc1024;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    top: 50px; /* Ajusta para que aparezca justo debajo del icono */
+    right: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.dropdown-content p:hover {
+    background-color: rgba(188, 16, 36, 0.1);
+}
+
+.user-profile i {
+    max-width: 30px;
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 20px;
+    padding: 40px;
+    text-align: center;
+    background-color: rgba(229, 229, 229, 0); /* Sin color de fondo */
+    flex-grow: 1;
+    height: auto;
+    overflow-y: visible; /* Asegura que no haya scroll interno */
+}
+
+.service {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* .service:hover {
+    transform: translateY(-10px);
+} */
+
+.service-icon {
+    max-width: 140px;
+    margin-bottom: 5px;
+}
+
+.service p {
+    font-size: 1.1em;
+    color: #fff;
+    background-color: #bc1024;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.service p:hover {
+    background-color: #96121d;
+}
+
+/* Para pantallas menores a 768px, haz que los elementos sean de 1 columna */
+@media (max-width: 768px) {
+    .services {
+        grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 630px) {
+    .user-profile span, /* Oculta el texto "GERARDO" */
+    .header h1 { /* Oculta el título "PLATAFORMA INTEGRADORA DE LA RED" */
+        display: none;
+    }
+}

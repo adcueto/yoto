@@ -64,6 +64,13 @@ def dashboard():
         return redirect(url_for('login'))
     return render_template('dashboard.html')
 
+@server.route('/deskpi')
+def deskpi():
+    if not session.get('logged_in'):
+        flash('Por favor, inicie sesión primero.', 'danger')
+        return redirect(url_for('login'))
+    return render_template('deskpi.html')
+
 if __name__ == '__main__':
     server.run(host='0.0.0.0', port=5000, debug=True)
 

@@ -1,15 +1,19 @@
 from flask import Flask, render_template, redirect, url_for, session, request, flash
-from dash_app import app  # Importar la aplicación Dash.
-
+from dash_app import create_smr_app, create_sdr_app # Importar la aplicación Dash.
 # La aplicación Flask ya está definida en dash_app.py, así que usamos la misma.
-server = app.server
-
+#server = app.server
+# Crear la aplicación Flask.
+server = Flask(__name__)
 # Establecer la clave secreta para manejar las sesiones de forma segura.
 server.secret_key = '62334da7903ea889f0f2e1c87c0e8326'
 
 # Usuario y contraseña de prueba.
 USERNAME = 'admin'
 PASSWORD = 'password123'
+
+# Crear las instancias de las aplicaciones de Dash.
+smr_app = create_smr_app(server)
+sdr_app = create_sdr_app(server)
 
 @server.route('/')
 def home():
@@ -57,12 +61,19 @@ def menu():
         return redirect(url_for('login'))
     return render_template('menu.html')
 
-@server.route('/dashboard')
-def dashboard():
+@server.route('/smr')
+def smr():
     if not session.get('logged_in'):
         flash('Por favor, inicie sesión primero.', 'danger')
         return redirect(url_for('login'))
-    return render_template('dashboard.html')
+    return render_template('smr.html', active_page='smr')
+
+@server.route('/sdr')
+def sdr():
+    if not session.get('logged_in'):
+        flash('Por favor, inicie sesión primero.', 'danger')
+        return redirect(url_for('login'))
+    return render_template('sdr.html', active_page='sdr')
 
 if __name__ == '__main__':
     server.run(host='0.0.0.0', port=5000, debug=True)

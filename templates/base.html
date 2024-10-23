@@ -15,7 +15,8 @@
                 <li><a href="{{ url_for('services') }}">Services</a></li>
                 <li><a href="{{ url_for('contact') }}">Contact</a></li>
                 {% if session.get('logged_in') %}
-                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('smr') }}" class="{{ 'active' if active_page == 'smr' else '' }}">SMR</a></li>
+                    <li><a href="{{ url_for('sdr') }}" class="{{ 'active' if active_page == 'sdr' else '' }}">SDR</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 {% else %}
                     <li><a href="{{ url_for('login') }}">Login</a></li>
@@ -31,6 +32,5 @@
     </footer>
 </body>
 </html>
-
 
 

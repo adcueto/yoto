@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOTO - KPI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link href="{{ url_for('static', filename='FontAwesome/6.4.0/css/all.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='multimedia/img/icono.ico') }}">
+</head>
+<body>
+
+    <!-- Cabecera con logo, título y perfil de usuario -->
+    <header class="header">
+        <div class="logo">
+            <!-- Ruta dinámica para la imagen del logo -->
+            <img src="{{ url_for('static', filename='multimedia/img/LOGOyoto2.png') }}" alt="Logo" class="logo-img">
+        </div>
+        <h1>SISTEMA DE MONITOREO (SMR)</h1>
+        <div class="user-profile">
+            <i class="fa-regular fa-user" id="user-icon"></i>
+            <span>GERARDO</span>
+            <div id="dropdown-menu" class="dropdown-content">
+                <a href="{{ url_for('home') }}">
+                    <p>Cerrar sesión</p>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor del dashboard con el iframe coloca el respectivo iframe en este
+    espacio -->
+    <div class="dashboard-container">
+        
+    </div>
+
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+</body>
+</html>

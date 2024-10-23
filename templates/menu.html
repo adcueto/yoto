@@ -1,35 +1,58 @@
-{% extends 'base.html' %}
-{% block title %}Menú de Sistemas{% endblock %}
-{% block content %}
-<div class="menu-container">
-    <h2>Selecciona el sistema que deseas visualizar</h2>
-    <div class="menu-options">
-        <div class="option">
-            <a href="{{ url_for('smr') }}">
-                <img src="{{ url_for('static', filename='images/sistema_monitoreo.png') }}" alt="Sistema de Monitoreo de la Red (SMR)">
-                <p>SISTEMA DE MONITOREO DE LA RED</p>
-            </a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOTO - Plataforma Integradora</title>
+    <!-- Rutas dinámicas para los archivos estáticos usando url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link href="{{ url_for('static', filename='FontAwesome/6.4.0/css/all.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='multimedia/img/icono.ico') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <!-- Ruta dinámica para la imagen del logo -->
+            <img src="{{ url_for('static', filename='multimedia/img/LOGOyoto2.png') }}" alt="Logo" class="logo-img">
         </div>
-        <div class="option">
+        <h1>PLATAFORMA INTEGRADORA DE LA RED</h1>
+        <div class="user-profile">
+            <i class="fa-regular fa-user" id="user-icon"></i>
+            <span>GERARDO</span>
+            <div id="dropdown-menu" class="dropdown-content">
+                <a href="{{ url_for('home') }}">
+                    <p>Cerrar sesión</p>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="service">
+            <!-- Ruta dinámica para las imágenes de los servicios -->
+            <img src="{{ url_for('static', filename='multimedia/img/m1.png') }}" alt="Sistema de Desempeño" class="service-icon">
             <a href="{{ url_for('sdr') }}">
-                <img src="{{ url_for('static', filename='images/sistema_desempeno.png') }}" alt="Sistema de Desempeño de la Red (SDR)">
                 <p>SISTEMA DE DESEMPEÑO DE LA RED</p>
             </a>
         </div>
-        <div class="option">
-            <a href="#">
-                <img src="{{ url_for('static', filename='images/sistema_estadistico.png') }}" alt="Sistema Estadístico de la Red">
-                <p>SISTEMA ESTADÍSTICO DE LA RED</p>
-                <p class="coming-soon">(Próximamente)</p>
+        <div class="service">
+            <img src="{{ url_for('static', filename='multimedia/img/m2.png') }}" alt="Sistema de Monitoreo" class="service-icon">
+            <a href="{{ url_for('smr') }}">
+                <p>SISTEMA DE MONITOREO DE LA RED</p>
             </a>
         </div>
-        <div class="option">
-            <a href="#">
-                <img src="{{ url_for('static', filename='images/sistema_auditor.png') }}" alt="Sistema Auditor de la Red">
-                <p>SISTEMA AUDITOR DE LA RED</p>
-                <p class="coming-soon">(Próximamente)</p>
-            </a>
+        <!--Gearardo solicito comentar esta parte, descomentalo cuando sea necesario en el menú-->
+        <!--<div class="service">
+            <img src="{{ url_for('static', filename='multimedia/img/m3.png') }}" alt="Sistema Estadístico" class="service-icon">
+            <p>SISTEMA ESTADÍSTICO DE LA RED</p>
         </div>
-    </div>
-</div>
-{% endblock %}
+        <div class="service">
+            <img src="{{ url_for('static', filename='multimedia/img/m4.png') }}" alt="Sistema Auditor" class="service-icon">
+            <p>SISTEMA AUDITOR DE LA RED</p>
+        </div>-->
+    </section>
+
+    <!-- Ruta dinámica para el archivo de JavaScript -->
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+</body>
+</html>

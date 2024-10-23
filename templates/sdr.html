@@ -1,7 +1,42 @@
-{% extends 'base.html' %}
-{% block title %}SDR - Sistema de Desempeño de la Red{% endblock %}
-{% block content %}
-<div class="dashboard-container">
-    <iframe src="/sdr/" style="width:100%; height: 80vh; border:none;"></iframe>
-</div>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOTO - SDR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link href="{{ url_for('static', filename='FontAwesome/6.4.0/css/all.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='multimedia/img/icono.ico') }}">
+</head>
+<body>
+
+    <!-- Cabecera con logo, título y perfil de usuario -->
+    <header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='multimedia/img/LOGOyoto2.png') }}" alt="Logo" class="logo-img">
+        </div>
+        <h1>SISTEMA DE DESEMPEÑO (SDR)</h1>
+        <div class="user-profile">
+            <i class="fa-regular fa-user" id="user-icon"></i>
+            <span>GERARDO</span>
+            <div id="dropdown-menu" class="dropdown-content">
+                <a href="{{ url_for('home') }}">
+                    <p>Cerrar sesión</p>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor del dashboard con el iframe -->
+    <div class="dashboard-container" style="padding: 20px;">
+        <iframe src="/sdr/" style="width:100%; height: 70vh; border:none;"></iframe>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 YOTO. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+</body>
+</html>

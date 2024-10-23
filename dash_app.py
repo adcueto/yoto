@@ -36,15 +36,11 @@ def create_smr_app(server, prefix='/smr/'):
             style={'width': '50%', 'margin': '10px auto'}
         ),
         dcc.Graph(id='smr-map', style={'width': '100%', 'height': 'calc(100vh - 50px)'})
-    ], className='dashboard-container')
-
-     # Añadir la hoja de estilos
-    smr_app.css.append_css({
-        "external_url": "/static/styles.css"
-    })
+    ])
 
     @smr_app.callback(
         Output('smr-map', 'figure'),
+        
         [Input('category-dropdown', 'value'), Input('node-input', 'value')]
     )
     def update_smr_map(selected_category, node_input):
@@ -71,8 +67,8 @@ def create_smr_app(server, prefix='/smr/'):
             hoverinfo='text'
         ))
 
-        fig.update_layout(mapbox=dict(style='open-street-map', zoom=zoom, center=dict(lat=center_lat, lon=center_lon)),
-                          margin=dict(l=0, r=0, t=0, b=0), height=850)
+        fig.update_layout(mapbox=dict(style='open-street-map', zoom=5, center=dict(lat=19.4326, lon=-99.1332)),
+                          margin=dict(l=0, r=0, t=0, b=0))
         return fig
 
     return smr_app

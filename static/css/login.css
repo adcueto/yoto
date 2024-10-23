@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container{
+    background: url('../multimedia/img/fondo_login.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 60px 40px 70px 40px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    max-width: 350px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.login-container::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+/* Media query para pantallas de hasta 350px de ancho */
+@media (max-width: 350px) {
+    .login-container {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+.login-form h2{
+    color: white;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    float: left; 
+    color: white; 
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+}
+
+.password-container {
+    display: inline-flex; /* Utiliza flexbox para alinear los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    width: 100%;
+}
+
+.password-container input {
+    flex: 1; /* Permite que el input ocupe todo el espacio disponible */
+    padding: 10px; /* Ajusta el padding como desees */
+    border-radius: 20px 0 0 20px; /* Bordes redondeados en la izquierda */
+    border: 1px solid #ccc; /* Añade un borde para el input */
+}
+
+#togglePassword {
+    /*background-color: rgb(45, 126, 231);  Color de fondo del botón */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor a pointer */
+    color: black; /* Color del icono */
+    padding: 10px 15px; /* Espacio alrededor del icono, ajusta para el tamaño deseado */
+    border-radius: 0 20px 20px 0; /* Bordes redondeados a la derecha */
+    display: flex; /* Para centrar el icono dentro del botón */
+    align-items: center; /* Centra el icono verticalmente */
+    justify-content: center; /* Centra el icono horizontalmente */
+    background: rgba(255, 255, 255, 0.9);
+}
+
+#togglePassword i {
+    font-size: 17px; /* Aumenta el tamaño del icono */
+}
+
+.password-container button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Efecto al pasar el mouse */
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 10px; /*Espacio entre botones*/
+}
+
+.submit-btn{
+    background-color: rgb(45, 126, 231);
+    height: 40px;
+    line-height: 40px;
+    border-radius: 40px;
+    border: none;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cancel-btn {
+    background-color: rgb(255, 69, 58);
+    text-decoration: none;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 40px;
+    border: none;
+    color: white;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+}
